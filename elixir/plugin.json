@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox-plugin.schema.json",
+  "name": "elixir",
+  "version": "0,0,1",
+  "description": "This plugin automatically configures elixir with mix and hex support for erlang modules.",
+  "env": {
+    "ERL_AFLAGS": "-kernel shell_history enabled",
+    "HEX_HOME": "{{ .Virtenv }}/hex",
+    "MIX_HOME": "{{ .Virtenv }}/mix"
+  },
+  "create_files": {
+    "{{ .Virtenv }}/hex": "",
+    "{{ .Virtenv }}/mix": ""
+  },
+  "shell": {
+    "init_hook": ["mix local.hex --force"],
+    "scripts": {
+      "console": "iex -S mix"
+    }
+  }
+}
