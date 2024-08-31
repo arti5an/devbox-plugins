@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox-plugin.schema.json",
   "name": "phoenix",
-  "version": "0,0,1",
+  "version": "0.0.2",
   "description": "This plugin automatically configures elixir with mix and hex support for erlang modules.",
   "packages": {
     "elixir": "latest",
@@ -28,6 +28,7 @@
   },
   "create_files": {
     "{{ .Virtenv }}/hex": "",
-    "{{ .Virtenv }}/mix": ""
+    "{{ .Virtenv }}/mix": "",
+    "{{ .Virtenv }}/process-compose.yaml": "config/process-compose.yaml"
   }
 }
