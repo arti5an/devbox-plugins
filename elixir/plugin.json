@@ -3,6 +3,9 @@
   "name": "elixir",
   "version": "0.0.1",
   "description": "This plugin automatically configures elixir with mix and hex support for erlang modules.",
+  "packages": {
+    "elixir": "latest"
+  },
   "env": {
     "ERL_AFLAGS": "-kernel shell_history enabled",
     "HEX_HOME": "{{ .Virtenv }}/hex",
