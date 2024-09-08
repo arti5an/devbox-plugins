@@ -16,9 +16,7 @@
     "{{ .Virtenv }}/mix": ""
   },
   "shell": {
-    "init_hook": [
-      "mix local.hex --force"
-    ],
+    "init_hook": ["mix local.hex --force --if-missing"],
     "scripts": {
       "console": "iex -S mix"
     }
