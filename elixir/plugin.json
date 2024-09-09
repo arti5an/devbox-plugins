@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox-plugin.schema.json",
   "name": "elixir",
-  "version": "0.0.1",
-  "description": "This plugin automatically configures elixir with mix and hex support for erlang modules.",
+  "version": "0.0.2",
+  "description": "This plugin provides a basic elixir environment with mix and hex support for modules.",
   "packages": {
     "elixir": "latest"
   },
@@ -11,14 +11,16 @@
     "HEX_HOME": "{{ .Virtenv }}/hex",
     "MIX_HOME": "{{ .Virtenv }}/mix"
   },
+  "shell": {
+    "init_hook": ["{{ .Virtenv }}/bin/initHook.sh"],
+    "scripts": {
+      "console": "iex -S mix",
+      "test": "mix test"
+    }
+  },
   "create_files": {
     "{{ .Virtenv }}/hex": "",
-    "{{ .Virtenv }}/mix": ""
-  },
-  "shell": {
-    "init_hook": ["mix local.hex --force --if-missing"],
-    "scripts": {
-      "console": "iex -S mix"
-    }
+    "{{ .Virtenv }}/mix": "",
+    "{{ .Virtenv }}/bin/initHook.sh": "config/initHook.sh"
   }
 }
