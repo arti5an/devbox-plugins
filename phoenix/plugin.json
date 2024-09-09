@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox-plugin.schema.json",
   "name": "phoenix",
   "version": "0.0.2",
-  "description": "This plugin automatically configures elixir with mix and hex support for erlang modules.",
+  "description": "This plugin provides an elixir environment suitable for creating and running phoenix applications using a combination of devbox scripts, services and `mix` commands.",
   "packages": {
     "elixir": "latest",
     "inotify-tools": "latest",
