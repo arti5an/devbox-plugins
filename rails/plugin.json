@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox-plugin.schema.json",
+  "name": "rails",
+  "version": "0.0.1",
+  "description": "This plugin provides a ruby environment suitable for creating and running rails applications using a combination of devbox scripts and rails/rake tasks.",
+  "packages": {
+    "bundler": "latest",
+    "curl": "latest",
+    "libyaml": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "libxml2": "latest",
+    "ruby": "latest",
+    "sqlite": "latest"
+  },
+  "shell": {
+    "init_hook": [
+      "gem install rails --prerelease",
+      "[ -f ./bin/setup ] && ./bin/setup --skip-server || bundle install",
+      "[ -d ./bin ] && export PATH=\"$PWD/bin:$PATH\" || exit 0"
+    ],
+    "scripts": {
+      "console": "./bin/rails console",
+      "dev": "./bin/dev",
+      "jobs": "./bin/jobs",
+      "test": "./bin/rails test"
+    }
+  }
+}
