@@ -1,29 +1,20 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox-plugin.schema.json",
   "name": "phoenix",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This plugin provides an elixir environment suitable for creating and running phoenix applications using a combination of devbox scripts, services and `mix` commands.",
+  "include": ["github:arti5an/devbox-plugins?dir=elixir"],
   "packages": {
-    "elixir": "latest",
     "inotify-tools": "latest",
     "postgresql": "latest"
-  },
-  "env": {
-    "ERL_AFLAGS": "-kernel shell_history enabled",
-    "HEX_HOME": "{{ .Virtenv }}/hex",
-    "MIX_HOME": "{{ .Virtenv }}/mix"
   },
   "shell": {
     "init_hook": ["{{ .Virtenv }}/bin/initHook.sh"],
     "scripts": {
-      "console": "iex -S mix",
-      "routes": "mix phx.routes",
-      "test": "mix test"
+      "routes": "mix phx.routes"
     }
   },
   "create_files": {
-    "{{ .Virtenv }}/hex": "",
-    "{{ .Virtenv }}/mix": "",
     "{{ .Virtenv }}/bin/initHook.sh": "config/initHook.sh",
     "{{ .Virtenv }}/process-compose.yaml": "config/process-compose.yaml"
   }
