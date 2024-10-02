@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox-plugin.schema.json",
   "name": "nodejs",
-  "version": "0.0.1",
-  "description": "This plugin provides a basic nodejs environment with npm and some common devbox hooks and commands.",
+  "version": "0.0.2",
+  "description": "This plugin provides a basic nodejs environment with npm with automated restores.",
   "packages": {
     "nodejs": "latest"
   },
@@ -10,13 +10,9 @@
     "DEVBOX_COREPACK_ENABLED": "0"
   },
   "shell": {
-    "init_hook": ["{{ .Virtenv }}/bin/initHook.sh"],
-    "scripts": {
-      "start": "npm start"
-    }
+    "init_hook": ["{{ .Virtenv }}/bin/initHook.sh"]
   },
   "create_files": {
-    "{{ .Virtenv }}/bin/initHook.sh": "config/initHook.sh",
-    "{{ .Virtenv }}/process-compose.yaml": "config/process-compose.yaml"
+    "{{ .Virtenv }}/bin/initHook.sh": "config/initHook.sh"
   }
 }

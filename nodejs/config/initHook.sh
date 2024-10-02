@@ -1,10 +1,3 @@
 #!/bin/sh
-# ensure npm is initialised
-if [ ! -f package.json ]; then
-	npm init -y
-fi
-
-# ensure packages are restored
-if [ ! -d node_modules ]; then
-	npm install
-fi
+# restore packages if configured in subdirs
+find . -maxdepth "${NPM_SEARCH_DEPTH:-2}" -name package.json -exec npm install --prefix "$(dirname {})" \;
