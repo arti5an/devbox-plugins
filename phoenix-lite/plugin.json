@@ -4,10 +4,7 @@
   "version": "0.0.1",
   "description": "This plugin provides an elixir environment suitable for creating and running sqlite backed phoenix applications using a combination of devbox scripts, services and `mix` commands.",
   "include": ["github:arti5an/devbox-plugins?dir=elixir"],
-  "packages": {
-    "inotify-tools": "latest",
-    "sqlite": "latest"
-  },
+  "packages": ["inotify-tools@latest", "sqlite@latest"],
   "shell": {
     "init_hook": ["{{ .Virtenv }}/bin/initHook.sh"],
     "scripts": {

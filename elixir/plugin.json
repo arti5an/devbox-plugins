@@ -3,9 +3,7 @@
   "name": "elixir",
   "version": "0.0.2",
   "description": "This plugin provides a basic elixir environment with mix and hex support for modules.",
-  "packages": {
-    "elixir": "latest"
-  },
+  "packages": ["elixir@latest"],
   "env": {
     "ERL_AFLAGS": "-kernel shell_history enabled",
     "HEX_HOME": "{{ .Virtenv }}/hex",

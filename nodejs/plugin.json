@@ -3,9 +3,7 @@
   "name": "nodejs",
   "version": "0.0.2",
   "description": "This plugin provides a basic nodejs environment with npm with automated restores.",
-  "packages": {
-    "nodejs": "latest"
-  },
+  "packages": ["coreutils@latest", "findutils@latest", "nodejs@latest"],
   "env": {
     "DEVBOX_COREPACK_ENABLED": "0"
   },
