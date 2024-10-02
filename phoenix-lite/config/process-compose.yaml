@@ -1,0 +1,13 @@
+version: "0.5"
+
+processes:
+  ecto_setup:
+    namespace: "init"
+    command: "mix ecto.setup"
+  phoenix_server:
+    command: "mix phx.server"
+    depends_on:
+      ecto_setup:
+        condition: process_completed
+    availability:
+      restart: "always"
