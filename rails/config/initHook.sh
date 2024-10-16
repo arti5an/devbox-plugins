@@ -10,8 +10,3 @@ elif [ -f ./Gemfile ]; then
 	# use bundle install when only a Gemfile is found
 	bundle install
 fi
-
-# add bin to PATH if present
-if [ -d ./bin ]; then
-	export PATH="${PWD}/bin:${PATH}"
-fi
