@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox-plugin.schema.json",
   "name": "rails",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This plugin provides a ruby environment suitable for creating and running rails applications using a combination of devbox scripts and rails/rake tasks.",
   "packages": {
     "bundler": "latest",
@@ -11,13 +11,18 @@
       "outputs": ["out", "dev"]
     },
     "libxml2": "latest",
-    "ruby": "latest",
+    "ruby": {
+      "version": "latest",
+      "disable_plugin": true
+    },
     "sqlite": "latest"
   },
   "env": {
+    "GEM_HOME": "{{ .Virtenv }}",
     "GEMRC": "{{ .DevboxProjectDir }}/.gemrc",
-    "PATH": "{{ .DevboxProjectDir }}/bin:$PATH",
-    "RAILS_GEM_INSTALL_FLAGS": ""
+    "PATH": "{{ .DevboxProjectDir }}/bin:{{ .Virtenv }}/bin:$PATH",
+    "RAILS_GEM_INSTALL_FLAGS": "",
+    "RUBY_CONFDIR": "{{ .Virtenv }}"
   },
   "shell": {
     "init_hook": ["{{ .Virtenv }}/bin/initHook.sh"],
